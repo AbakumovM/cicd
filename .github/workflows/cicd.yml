@@ -67,10 +67,10 @@ jobs:
                 username: ${{ secrets.SSH_USER}}
                 password: ${{ secrets.SSH_PASSWORD}}
                 port: 5000
-                script:  |
+                script: |
                   cd /home/mikhail/cicd
                   git pull origin cicd
-                  source venv/bin/activate
+                  source env/bin/activate
                   python manage.py migrate
                   deactivate
                   sudo systemctl restart gunicorn

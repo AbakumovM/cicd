@@ -66,14 +66,8 @@ jobs:
                 host: ${{ secrets.SSH_HOST}}
                 username: ${{ secrets.SSH_USER}}
                 password: ${{ secrets.SSH_PASSWORD}}
-                port: 5000
-                script: |
-                  cd /home/mikhail/cicd
-                  git pull origin cicd
-                  source env/bin/activate
-                  python manage.py migrate
-                  deactivate
-                  sudo systemctl restart gunicorn
+                script: expect /home/mikhail/cicd/pull.exp
+
 
                 
 

@@ -51,21 +51,21 @@ jobs:
             - name: Тестирование
               run: python manage.py test
               env:
-                SECRET_KEY: ${{ env.SECRET}}
+                SECRET_KEY: ${{ env.SECRET }}
                 DEBUG: ${{ env.DEBUG}}
-                ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS}}
-                DB_ENGINE: ${{ env.PG_ENGINE}}
-                DB_NAME: ${{ env.PG_DB_NAME}}
-                DB_USER: ${{ env.PG_USER}}
-                DB_PASSWORD: ${{ env.PG_PASSWORD}}
-                DB_HOST: ${{ env.PG_HOST}}
-                DB_PORT: ${{ env.DB_PORT}}
+                ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
+                DB_ENGINE: ${{ env.PG_ENGINE }}
+                DB_NAME: ${{ env.PG_DB_NAME }}
+                DB_USER: ${{ env.PG_USER }}
+                DB_PASSWORD: ${{ env.PG_PASSWORD }}
+                DB_HOST: ${{ env.PG_HOST }}
+                DB_PORT: ${{ env.DB_PORT }}
             - name: Деплой
               uses: appleboy/ssh-action@master
               with:
-                host: ${{ secrets.SSH_HOST}}
-                username: ${{ secrets.SSH_USER}}
-                password: ${{ secrets.SSH_PASSWORD}}
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USER }}
+                password: ${{ secrets.SSH_PASSWORD }}
                 script: expect /home/mikhail/cicd/pull.exp
 
 

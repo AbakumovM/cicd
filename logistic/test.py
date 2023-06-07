@@ -8,5 +8,5 @@ class TestSampleView(TestCase):
         client = APIClient()
         url = '/api/v1/test/'
         response = client.get(url)
-        self.assertEqual(response.data, 'Hello world!')
+        self.assertEqual(response.data, 'Получилось сделать дз!')
         self.assertEqual(response.status_code, 200)
